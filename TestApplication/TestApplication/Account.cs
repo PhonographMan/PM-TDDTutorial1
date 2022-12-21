@@ -28,6 +28,10 @@ namespace TestApplication
             {
                 safeValue = newValue;
             }
+            else
+            {
+                safeValue = -Overdraft;
+            }
 
             return safeValue;
         }

@@ -78,5 +78,40 @@ namespace TestApplicationTests
             // Assert
             Assert.AreEqual(expectedValue, balance);
         }
+
+        [TestMethod]
+        public void Balance_ReturnsMinus50_WhenBalanceIsZeroAndOverdraftIs100And50IsTakenFromBalanceTest()
+        {
+            int expectedValue = -50;
+
+            // Arrange
+            var newAccount = new Account();
+            newAccount.Overdraft = 100;
+
+            // Act
+            newAccount.Balance -= 50;
+            int balance = newAccount.Balance;
+
+            // Assert
+            Assert.AreEqual(expectedValue, balance);
+        }
+
+        [TestMethod]
+        public void Balance_ReturnsMinus100_WhenBalanceIsZeroAndOverdraftIs100And200IsTakenFromBalanceTest()
+        {
+            int expectedValue = -100;
+            int takenFromBalance = 200;
+
+            // Arrange
+            var newAccount = new Account();
+            newAccount.Overdraft = 100;
+
+            // Act
+            newAccount.Balance -= takenFromBalance;
+            int balance = newAccount.Balance;
+
+            // Assert
+            Assert.AreEqual(expectedValue, balance);
+        }
     }
 }
