@@ -12,10 +12,7 @@ public class Account
 
     public void SetBalance(int value)
     {
-        if(value >= -overdraft)
-        {
-            this.balance = value;
-        }
+        this.balance = ReturnHighestSafeBalance(this.balance, value);
     }
 
     public int GetOverdraft()
@@ -26,5 +23,16 @@ public class Account
     public void SetOverdraft(int value)
     {
         this.overdraft = value;
+    }
+
+    private int ReturnHighestSafeBalance(int existingValue, int newValue)
+    {
+        int safeValue = existingValue;
+        if (newValue >= -this.overdraft)
+        {
+            safeValue = newValue;
+        }
+
+        return newValue;
     }
 }
