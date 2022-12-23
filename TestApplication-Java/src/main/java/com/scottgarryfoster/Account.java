@@ -33,6 +33,6 @@ public class Account
             safeValue = newValue;
         }
 
-        return newValue;
+        return safeValue;
     }
 }
