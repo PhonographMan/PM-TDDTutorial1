@@ -2,26 +2,29 @@ package com.scottgarryfoster;
 
 public class Account
 {
-    private int Balance;
-    private int Overdraft;
+    private int balance;
+    private int overdraft;
 
     public int GetBalance()
     {
-        return 0;
+        return this.balance;
     }
 
     public void SetBalance(int value)
     {
-        Balance = value;
+        if(value > 0)
+        {
+            this.balance = value;
+        }
     }
 
     public int GetOverdraft()
     {
-        return Overdraft;
+        return this.overdraft;
     }
 
     public void SetOverdraft(int value)
     {
-        Overdraft = value;
+        this.overdraft = value;
     }
 }

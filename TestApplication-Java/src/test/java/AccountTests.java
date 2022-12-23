@@ -45,4 +45,19 @@ public class AccountTests
         // Assert
         assertEquals(0, balance);
     }
+
+    @Test
+    public void Balance_Returns100_When100IsAddedToABlankBalanceTest()
+    {
+        // Arrange
+        var newAccount = new Account();
+        int originalBalance = newAccount.GetBalance();
+
+        // Act
+        newAccount.SetBalance(originalBalance + 100);
+        int balance = newAccount.GetBalance();
+
+        // Assert
+        assertEquals(100, balance);
+    }
 }
