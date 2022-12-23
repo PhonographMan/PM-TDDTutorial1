@@ -12,7 +12,7 @@ public class Account
 
     public void SetBalance(int value)
     {
-        if(value > 0)
+        if(value >= -overdraft)
         {
             this.balance = value;
         }

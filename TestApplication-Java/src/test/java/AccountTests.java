@@ -60,4 +60,24 @@ public class AccountTests
         // Assert
         assertEquals(100, balance);
     }
+
+    @Test
+    public void Balance_ReturnsMinus100_WhenBalanceIsZeroAndOverdraftIs100And100IsTakenFromBalanceTest()
+    {
+        int expectedValue = -100;
+
+        // Arrange
+        var newAccount = new Account();
+        int originalBalance = newAccount.GetBalance();
+
+        newAccount.SetOverdraft(100);
+
+        // Act
+        newAccount.SetBalance(originalBalance - 100);
+        int balance = newAccount.GetBalance();
+
+        // Assert
+        assertEquals(expectedValue, balance);
+    }
+
 }
